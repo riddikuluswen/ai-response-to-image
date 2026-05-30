@@ -61,7 +61,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, HOST, () => {
-  console.log(`Markdown 分享排版工具已启动：http://${HOST}:${PORT}/`);
+  console.log(`AI 回复转图片工具已启动：http://${HOST}:${PORT}/`);
 });
 
 async function handleShareImport(requestUrl, res) {
@@ -919,11 +919,11 @@ function stripMarkdown(value) {
 
 function safeFileName(value) {
   return (
-    String(value || 'markdown-share')
+    String(value || 'ai-response-image')
       .trim()
       .replace(/[\\/:*?"<>|]/g, '-')
       .replace(/\s+/g, '-')
-      .slice(0, 60) || 'markdown-share'
+      .slice(0, 60) || 'ai-response-image'
   );
 }
 

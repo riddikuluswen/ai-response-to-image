@@ -32,7 +32,7 @@ GET /api/projects?status=active
 const state = {
   markdown: localStorage.getItem('share-tool:markdown') || DEFAULT_MARKDOWN,
   title: localStorage.getItem('share-tool:title') || 'AI 回复整理',
-  source: localStorage.getItem('share-tool:source') || 'Markdown 分享排版工具',
+  source: localStorage.getItem('share-tool:source') || 'AI 回复转图片工具',
   shareUrl: localStorage.getItem('share-tool:shareUrl') || '',
   theme: localStorage.getItem('share-tool:theme') || 'paper',
   width: localStorage.getItem('share-tool:width') || '720',
@@ -53,7 +53,7 @@ app.innerHTML = `
     <section class="editor-pane">
       <div class="topbar">
         <div>
-          <h1>Markdown 分享排版</h1>
+          <h1>AI 回复转图片</h1>
         </div>
         <div class="quick-actions">
           <button class="ghost" id="pasteBtn" type="button">粘贴</button>
@@ -252,7 +252,7 @@ function render() {
   const unsafeHtml = marked.parse(normalizeMarkdownForReading(state.markdown || ''));
   nodes.renderedContent.innerHTML = DOMPurify.sanitize(unsafeHtml);
   nodes.cardTitle.textContent = state.title.trim() || '未命名内容';
-  nodes.cardSource.textContent = state.source.trim() || 'Markdown 分享排版工具';
+  nodes.cardSource.textContent = state.source.trim() || 'AI 回复转图片工具';
   nodes.cardDate.textContent = new Intl.DateTimeFormat('zh-CN', {
     year: 'numeric',
     month: '2-digit',
@@ -463,11 +463,11 @@ function canvasToBlob(canvas) {
 }
 
 function safeFileName(value) {
-  return (value || 'markdown-share')
+  return (value || 'ai-response-image')
     .trim()
     .replace(/[\\/:*?"<>|]/g, '-')
     .replace(/\s+/g, '-')
-    .slice(0, 60) || 'markdown-share';
+    .slice(0, 60) || 'ai-response-image';
 }
 
 let toastTimer;

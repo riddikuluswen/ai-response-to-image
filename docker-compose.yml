@@ -1,7 +1,7 @@
 services:
   markdown-render:
     build: .
-    container_name: markdown-share-tool
+    container_name: ai-response-to-image
     restart: unless-stopped
     environment:
       HOST: 0.0.0.0

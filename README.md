@@ -1,10 +1,10 @@
-# Markdown Share Tool
+# AI Response to Image
 
 把 Markdown 格式的 AI 回复整理成适合微信、Telegram、群聊转发的阅读版页面，并支持导出长图和 PDF。
 
 这个工具最初是为了解决一个很具体的问题：AI 回复通常带有标题、列表、表格、加粗、代码块等 Markdown 结构，直接复制到微信里会变得很难读。这个项目把这些内容重新排版成简洁的阅读卡片，方便截图、导出 PNG/PDF，或者由 Telegram Bot 自动生成图片发回聊天框。
 
-![Markdown Share Tool screenshot](docs/assets/markdown-share-tool-screenshot.jpg)
+![AI Response to Image screenshot](docs/assets/ai-response-to-image-screenshot.jpg)
 
 ## 功能
 
@@ -26,8 +26,8 @@
 需要 Node.js 20 或更新版本。
 
 ```bash
-git clone https://github.com/riddikuluswen/markdown-share-tool.git
-cd markdown-share-tool
+git clone https://github.com/riddikuluswen/ai-response-to-image.git
+cd ai-response-to-image
 npm install
 npm run dev
 ```
@@ -41,8 +41,8 @@ http://127.0.0.1:5173
 ### Docker 运行
 
 ```bash
-git clone https://github.com/riddikuluswen/markdown-share-tool.git
-cd markdown-share-tool
+git clone https://github.com/riddikuluswen/ai-response-to-image.git
+cd ai-response-to-image
 docker compose up -d --build
 ```
 
@@ -159,13 +159,13 @@ Content-Type: application/json
 这个项目不接管 Telegram Bot。推荐结构是：
 
 ```text
-Telegram Bot -> Hermes / 自动化脚本 -> Markdown Share Tool -> PNG 图片 -> Telegram
+Telegram Bot -> Hermes / 自动化脚本 -> AI Response to Image -> PNG 图片 -> Telegram
 ```
 
 Hermes 收到用户消息后，可以调用：
 
 ```text
-http://markdown-share-tool:5173/api/render-json
+http://ai-response-to-image:5173/api/render-json
 ```
 
 或者在 NAS 局域网里使用：
