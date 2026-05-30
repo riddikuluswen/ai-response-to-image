@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.DS_Store
+_过程文件/
+npm-debug.log*
