@@ -3,3 +3,8 @@ dist/
 .DS_Store
 _过程文件/
 npm-debug.log*
+.env
+.env.*
+!.env.example
+coverage/
+*.log
